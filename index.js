@@ -5,7 +5,11 @@ const { fal } =require('@fal-ai/client');
 const app = express();
 const port = 3000;
 require('dotenv').config();
-app.use(cors());
+app.use(cors({ 
+    origin: 'http://localhost:5173', 
+    credentials: true,
+    // allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
 
 fal.config({
